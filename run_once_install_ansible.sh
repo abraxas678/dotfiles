@@ -3,6 +3,7 @@ echo
 echo
 echo
 echo
+
 install_on_fedora() {
     sudo dnf install -y ansible
 }
@@ -38,6 +39,6 @@ case "${OS}" in
 esac
 
 
-ansible-playbook ~/bin/setup_ansible_apps.yml --ask-become-pass
+ansible-playbook ~/bin/setup_ansible_apps.yml --ask-become-pass -i /home/abrax/.config/ansible/inventory.ini
 
 echo "Ansible installation complete."
