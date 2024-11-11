@@ -38,4 +38,3 @@ esac
 ansible-playbook ~/bin/setup_ansible_apps.yml --ask-become-pass
 
 echo "Ansible installation complete."
-
