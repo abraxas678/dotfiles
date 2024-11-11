@@ -3,6 +3,8 @@ echo
 echo
 echo
 echo
+echo
+echo
 
 install_on_fedora() {
     sudo dnf install -y ansible
