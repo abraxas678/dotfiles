@@ -35,6 +35,6 @@ case "${OS}" in
 esac
 
 
-ansible-playbook ~/bin/setup_ansible_apps.yml --ask-become-pass -i /home/abrax/.config/ansible/inventory.ini
+ansible-playbook ~/bin/setup_ansible_apps_$(hostname).yml --ask-become-pass -i /home/abrax/.config/ansible/inventory.ini
 
 echo "Ansible installation complete."
