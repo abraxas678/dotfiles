@@ -10,6 +10,8 @@ OWNER="$(ls -la $1 | awk '{print $3}')"
 BASENAME="$(basename "${1%.*}" | sed 's/^\.//')"
 EXTENSION="${1##*.}"
 
+
+
 if [[ $(/home/abrax/bin/chezmoi managed | grep -v grep | grep -E ".*$BASENAME.*$EXTENSION.*" | wc -l) -gt 0 ]]; then
     echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
     echo -e "${BLUE}│${NC} ${GREEN}Chezmoi File Check${NC}"
