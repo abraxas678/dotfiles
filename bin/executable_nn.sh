@@ -4,6 +4,7 @@ v1="$1"
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 GRAY='\033[1;30m'
+RED='\033[0;31m'
 NC='\033[0m'
 
 OWNER="$(ls -la $1 | awk '{print $3}')"
@@ -36,10 +37,26 @@ if [[ $OWNER != $USER ]]; then
     echo -e "${BLUE}│${NC} ${GRAY}File:${NC}         $v1"
     echo -e "${BLUE}│${NC} ${GRAY}File owner:${NC}    $OWNER"
     echo -e "${BLUE}│${NC} ${GRAY}Current user:${NC}  $USER"
-    echo -e "${RED}└─➤${NC} ${GRAY}Launching with sudo privileges...${NC}"
+    echo -e "${RED}└─➤${NC} ${GRAY}Sudo access required${NC}"
     echo ""
-    sleep 10
-    sudo nano "$1"
+    
+    echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
+    echo -e "${BLUE}│${NC} ${GREEN}Sudo Confirmation${NC}"
+    echo -e "${BLUE}│${NC} ${GRAY}Do you want to open this file with sudo privileges?${NC}"
+    echo -ne "${BLUE}└─➤${NC} ${GRAY}Enter [y/N]:${NC} "
+    tput civis  # Hide cursor
+    read -n 1 confirm
+    tput cnorm  # Show cursor
+    echo ""     # New line after input
+    
+    if [[ $confirm =~ ^[Yy]$ ]]; then
+        echo -e "${RED}└─➤${NC} ${GRAY}Launching with sudo privileges...${NC}"
+        sleep 1
+        sudo nano "$1"
+    else
+        echo -e "${GREEN}└─➤${NC} ${GRAY}Operation cancelled${NC}"
+        exit 1
+    fi
 else
     echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
     echo -e "${BLUE}│${NC} ${GREEN}File Access Check${NC}"
