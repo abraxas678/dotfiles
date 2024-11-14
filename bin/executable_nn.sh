@@ -36,14 +36,15 @@ if [[ $OWNER != $USER ]]; then
     echo -e "${BLUE}│${NC} ${GRAY}File:${NC}         $v1"
     echo -e "${BLUE}│${NC} ${GRAY}File owner:${NC}    $OWNER"
     echo -e "${BLUE}│${NC} ${GRAY}Current user:${NC}  $USER"
-    echo -e "${BLUE}└─➤${NC} ${GRAY}Launching with sudo privileges...${NC}"
+    echo -e "${RED}└─➤${NC} ${GRAY}Launching with sudo privileges...${NC}"
     echo ""
+    sleep 10
     sudo nano "$1"
 else
     echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
     echo -e "${BLUE}│${NC} ${GREEN}File Access Check${NC}"
     echo -e "${BLUE}│${NC} ${GRAY}File:${NC}         $v1"
-    echo -e "${BLUE}└─➤${NC} ${GRAY}Opening file with standard privileges...${NC}"
+    echo -e "${GREEN}└─➤${NC} ${GRAY}Opening file with standard privileges...${NC}"
     echo ""
     nano "$1"
 fi
