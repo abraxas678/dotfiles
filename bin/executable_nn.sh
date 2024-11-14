@@ -10,6 +10,13 @@ OWNER="$(ls -la $1 | awk '{print $3}')"
 BASENAME="$(basename "${1%.*}" | sed 's/^\.//')"
 EXTENSION="${1##*.}"
 
+echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
+echo -e "${BLUE}│${NC} ${GREEN}File Information${NC}"
+echo -e "${BLUE}│${NC} ${GRAY}Owner:${NC}      $OWNER"
+echo -e "${BLUE}│${NC} ${GRAY}Base name:${NC}   $BASENAME" 
+echo -e "${BLUE}│${NC} ${GRAY}Extension:${NC}   $EXTENSION"
+echo -e "${BLUE}└─➤${NC} ${GRAY}Processing file...${NC}"
+echo ""
 
 
 if [[ $(/home/abrax/bin/chezmoi managed | grep -v grep | grep -E ".*$BASENAME.*$EXTENSION.*" | wc -l) -gt 0 ]]; then
