@@ -1,4 +1,40 @@
 #!/bin/bash
+v1="$1"
+# Define color codes
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+GRAY='\033[1;30m'
+NC='\033[0m'
+
 OWNER="$(ls -la $1 | awk '{print $3}')"
-#echo "$1" | tee /dev/tty | xsel -b
-[[ $OWNER != $USER ]] && sudo nano" $1" || nano "$1"
+BASENAME="$(basename "${1%.*}" | sed 's/^\.//')"
+EXTENSION="${1##*.}"
+
+if [[ $(/home/abrax/bin/chezmoi managed | grep -v grep | grep -E ".*$BASENAME.*$EXTENSION.*" | wc -l) -gt 0 ]]; then
+    echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
+    echo -e "${BLUE}│${NC} ${GREEN}Chezmoi File Check${NC}"
+    echo -e "${BLUE}│${NC} ${GRAY}File:${NC}         $v1"
+    echo -e "${BLUE}└─➤${NC} ${GRAY}Opening with chezmoi...${NC}"
+    echo ""
+    sleep 3
+    chezmoi edit "$1"
+    exit 0
+fi
+
+if [[ $OWNER != $USER ]]; then
+    echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
+    echo -e "${BLUE}│${NC} ${GREEN}File Access Check${NC}"
+    echo -e "${BLUE}│${NC} ${GRAY}File:${NC}         $v1"
+    echo -e "${BLUE}│${NC} ${GRAY}File owner:${NC}    $OWNER"
+    echo -e "${BLUE}│${NC} ${GRAY}Current user:${NC}  $USER"
+    echo -e "${BLUE}└─➤${NC} ${GRAY}Launching with sudo privileges...${NC}"
+    echo ""
+    sudo nano "$1"
+else
+    echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
+    echo -e "${BLUE}│${NC} ${GREEN}File Access Check${NC}"
+    echo -e "${BLUE}│${NC} ${GRAY}File:${NC}         $v1"
+    echo -e "${BLUE}└─➤${NC} ${GRAY}Opening file with standard privileges...${NC}"
+    echo ""
+    nano "$1"
+fi
