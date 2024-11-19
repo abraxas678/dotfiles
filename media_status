@@ -1,0 +1,25 @@
+   -  entity_id: media_player.bedroom_tv_2
+      state: playing
+      attributes:
+          volume_level: 0.6000000238418579
+          is_volume_muted: false
+          media_content_id: 
+              https://nuc.deer-eel.ts.net/ff26fb66-c48a-4909-af0b-46a59afc21a3/20241114_022230/group_92/three_guys_hypnosis_experience.mp4
+          media_content_type: video
+          media_duration: 686.047
+          media_position: 0
+          media_position_updated_at: '2024-11-15T21:46:02.616427+00:00'
+          media_title: three_guys_hypnosis_experience
+          app_id: CC1AD845
+          app_name: Default Media Receiver
+          entity_picture_local:
+          friendly_name: Bedroom TV 2
+          supported_features: 152463
+      last_changed: '2024-11-15T21:46:02.617573+00:00'
+      last_reported: '2024-11-15T21:46:36.945810+00:00'
+      last_updated: '2024-11-15T21:46:36.945810+00:00'
+      context:
+          id: 01JCRWNNGHSTPZ1AXBJQ01BZ88
+          parent_id:
+          user_id:
+

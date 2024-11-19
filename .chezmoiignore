@@ -1,0 +1,4 @@
+**/.git/**
+key.txt.age
+.zsh_history
+.config/autokey/autokey.json~
