@@ -54,8 +54,8 @@ if [[ $OWNER != $USER ]]; then
         sleep 1
         sudo nano "$1"
     else
-        echo -e "${GREEN}└─➤${NC} ${GRAY}Operation cancelled${NC}"
-        exit 1
+        nano "$1"
+#        echo -e "${GREEN}└─➤${NC} ${GRAY}Operation cancelled${NC}"
     fi
 else
     echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
