@@ -55,3 +55,6 @@ esac
 ansible-playbook ~/bin/setup_ansible_apps.yml --ask-become-pass -i /home/abrax/.config/ansible/inventory.ini
 
 echo "Ansible installation complete."
+
+echo
+[[ -f ~/.local/share/atuin/key ]] && [[ $(atuin status) = *"You are not logged in"* ]] && echo "atuin login:" && atuin login
