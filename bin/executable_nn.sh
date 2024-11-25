@@ -8,19 +8,21 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 OWNER="$(ls -la $1 | awk '{print $3}')"
+FULLPATH="$(readlink -f "$1")"
 BASENAME="$(basename "${1%.*}" | sed 's/^\.//')"
 EXTENSION="${1##*.}"
 
 echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
 echo -e "${BLUE}│${NC} ${GREEN}File Information${NC}"
 echo -e "${BLUE}│${NC} ${GRAY}Owner:${NC}      $OWNER"
+echo -e "${BLUE}│${NC} ${GRAY}Path:${NC}       $FULLPATH"
 echo -e "${BLUE}│${NC} ${GRAY}Base name:${NC}   $BASENAME" 
 echo -e "${BLUE}│${NC} ${GRAY}Extension:${NC}   $EXTENSION"
 echo -e "${BLUE}└─➤${NC} ${GRAY}Processing file...${NC}"
 echo ""
 
 
-if [[ $(/home/abrax/bin/chezmoi managed | grep -v grep | grep -E ".*$BASENAME.*$EXTENSION.*" | wc -l) -gt 0 ]]; then
+if [[ $(/home/abrax/bin/chezmoi managed | grep -v grep | grep -E "$(echo "$FULLPATH" | sed "s|$HOME||").*$BASENAME.*$EXTENSION.*" | wc -l) -gt 0 ]]; then
     echo -e "${BLUE}┌────────────────────────────────────────────────┐${NC}"
     echo -e "${BLUE}│${NC} ${GREEN}Chezmoi File Check${NC}"
     echo -e "${BLUE}│${NC} ${GRAY}File:${NC}         $v1"
