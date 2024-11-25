@@ -56,4 +56,5 @@ ansible-playbook ~/bin/setup_ansible_apps.yml --ask-become-pass -i /home/abrax/.
 
 echo "Ansible installation complete."
 
-[[ -f ~/.local/share/atuin/key ]] && [[ $(atuin status) = *"You are not logged in"* ]] && atuin login
+echo
+[[ -f ~/.local/share/atuin/key ]] && [[ $(atuin status) = *"You are not logged in"* ]] && echo "atuin login:" && atuin login
