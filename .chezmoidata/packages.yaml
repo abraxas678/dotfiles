@@ -1,0 +1,12 @@
+packages:
+  darwin:
+    apt:
+    - 'xsel'
+    - 'git'
+    - 'gh'
+    - 'jq'
+    - 'age'
+    brews:
+    - 'git'
+    casks:
+    - 'google-chrome'

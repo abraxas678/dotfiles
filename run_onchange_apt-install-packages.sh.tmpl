@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo apt install -y  <<EOF
+{{ range .packages.darwin.apt -}}
+sudo apt install -y {{ . | quote }}
+{{ end -}}
+{{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
