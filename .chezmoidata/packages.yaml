@@ -29,5 +29,5 @@ packages:
     - 'pueue'
     - 'gum'
     - 'atuin'
-#    casks:
-#    - 'google-chrome'
+    casks:
+    - 'google-chrome'
