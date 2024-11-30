@@ -18,6 +18,7 @@ packages:
     - 'pipx'
     - 'keepassxc'
     - 'zellij'
+    - 'jq'
     brews:
     - 'ripgrep'
     - 'bat'
