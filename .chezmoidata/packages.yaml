@@ -1,12 +1,33 @@
 packages:
-  darwin:
+  linux:
     apt:
     - 'xsel'
     - 'git'
     - 'gh'
     - 'jq'
     - 'age'
+    - 'curl'
+    - 'wget'
+    - 'glances'
+    - 'fzf'
+    - 'tmux'
+    - 'fd-find'
+    - 'toilet'
+    - 'zoxide'
+    - 'python3-pip'
+    - 'pipx'
+    - 'keepassxc'
+    - 'zellij'
     brews:
-    - 'git'
-    casks:
-    - 'google-chrome'
+    - 'ripgrep'
+    - 'bat'
+    - 'eza'
+    - 'lazygit'
+    - 'delta'
+    - 'bottom'
+    - 'fzf'
+    - 'pueue'
+    - 'gum'
+    - 'atuin'
+#    casks:
+#    - 'google-chrome'
