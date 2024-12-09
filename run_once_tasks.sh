@@ -23,6 +23,7 @@ if ! command -v bws >/dev/null 2>&1; then
     sudo mv bws /usr/bin/
     rm -f bws-x86_64-unknown-linux-gnu-1.0.0.zip
     bws config server-base https://vault.bitwarden.eu
+    sudo apt install zellij -y
 fi
 
 chmod 700 ~/.ssh
