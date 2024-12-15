@@ -43,3 +43,5 @@ echo "Ansible installation complete."
 
 echo
 [[ -f ~/.local/share/atuin/key ]] && [[ $(atuin status) = *"You are not logged in"* ]] && echo "atuin login:" && atuin login
+
+exit 0
