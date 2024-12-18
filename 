@@ -1,0 +1,38 @@
+[1mdiff --git a/.config/espanso/match/base.yml b/.config/espanso/match/base.yml
+index 8f943126b67f8a70c9e2b1d7a1f482ac0e0b13a3..8d328b191da9a29f782e4e7fa553a227e991d21c 100664
+--- a/.config/espanso/match/base.yml
++++ b/.config/espanso/match/base.yml[m
+[36m@@ -25,31 +25,14 @@[m         type: date
+         params:
+           format: "%m/%d/%Y"
+ 
+[31m-  - trigger: ":ip"[m
+[31m-    replace: "{{output}}"[m
+[31m-    vars:[m
+[31m-      - name: output[m
+[31m-        type: shell[m
+[31m-        params:[m
+[31m-          cmd: "curl 'https://api.ipify.org'"[m
+[31m-[m
+[31m-[m
+   # Print the output of a shell command
+[31m-  - trigger: "sss"[m
+[32m+  - trigger: ":shell"[m
+     replace: "{{output}}"
+     vars:
+       - name: output
+         type: shell
+         params:
+[31m-          cmd: "wmctrl -i -a $(wmctrl -l | grep -v grep | grep 'http'  | awk '{print $1}')"[m
+[31m-[m
+[31m-  - trigger: "ccc"[m
+[31m-    replace: "{{output}}"[m
+[31m-    vars:[m
+[31m-      - name: output[m
+[31m-        type: shell[m
+[31m-        params:[m
+[31m-          cmd: "wmctrl -i -a $(wmctrl -l | grep -v grep | grep 'Cursor'  | awk '{print $1}')"[m
+[32m+          cmd: "echo 'Hello from your shell'"[m
+ 
+   - trigger: "ased"
+     replace: "{{output}}"
