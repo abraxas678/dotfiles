@@ -1,5 +1,5 @@
 #!/bin/bash
-# ~/bin/setup_ansible_apps.yml hash: {{ include "~/bin/setup_ansible_apps.yml" | sha256sum }}
+~/bin/setup_ansible_apps.yml hash: {{ include "~/bin/setup_ansible_apps.yml" | sha256sum }}
 
 install_on_fedora() {
     sudo dnf install -y ansible
