@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  nodered:
+    image: nodered/node-red:latest
+    deploy:
+      mode: replicated
+      replicas: 1  # Node-RED typically runs as single instance
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+      placement:
+        preferences:
+          - spread: node.id  # Spread across available nodes
+        constraints:
+          - node.platform.os == linux  # Ensure Linux OS
+    ports:
+      - target: 1880
+        published: 1880
+        mode: ingress
+    environment:
+      - TZ=UTC
+      - NODE_RED_ENABLE_PROJECTS=true
+      - NODE_RED_ENABLE_SAFE_MODE=false
+    volumes:
+      - nodered_data:/data
+    networks:
+      - nodered_net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1880"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  nodered_data:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=nfs-server,rw
+      device: ":/path/to/nodered/data"
+
+networks:
+  nodered_net:
+    driver: overlay
+    attachable: true
+    driver_opts:
+      encrypted: "true"
