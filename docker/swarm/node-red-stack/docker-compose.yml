@@ -47,7 +47,7 @@ volumes:
     driver_opts:
       type: nfs
       o: addr=nfs-server,rw
-      device: ":/path/to/nodered/data"
+      device: ":./data"
 
 networks:
   nodered_net:
