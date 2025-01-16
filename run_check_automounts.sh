@@ -5,6 +5,8 @@ GREEN='\033[0;32m'
 GRAY='\033[1;30m'
 NC='\033[0m'
 
+if [[ $(tailscale status -json | jq -r .BackendState) = *"Running"* ]]; then
+if [[ $(tailscale status -json | jq '.Self.Online') = *"true"* ]]; then
 # Check if mount point exists
 MOUNT_PATH="/mnt/webdav/tsdrive/abraxas678@gmail.com"
 
@@ -16,4 +18,6 @@ if [ ! -d "$MOUNT_PATH" ]; then
     /home/abrax/bin/setup_automount_tsdrive.sh
 else
     echo -e "${BLUE}└─➤${NC} ${GREEN}Mount point exists${NC}"
+fi
+fi
 fi
