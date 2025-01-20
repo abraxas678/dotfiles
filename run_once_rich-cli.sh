@@ -1,2 +1,2 @@
 #!/bin/bash
-pip3 install rich-cli
+pipx install rich-cli
