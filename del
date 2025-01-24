@@ -1,2 +1,16 @@
-/home/abrax/bin/pueue_filteredGPT.sh: line 19: syntax error near unexpected token `newline'
-/home/abrax/bin/pueue_filteredGPT.sh: line 19: `     grep "group = \"$group\"" "/home/abrax/tmp/pueue$ts.stat" | sed -n 's/.*tasks\["\([^"]*\).*/\1/p' >      '
+*   Trying 34.160.111.145:80...
+* Connected to ifconfig.me (34.160.111.145) port 80 (#0)
+> GET / HTTP/1.1
+> Host: ifconfig.me
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< date: Fri, 24 Jan 2025 08:03:57 GMT
+< content-type: text/plain
+< Content-Length: 12
+< access-control-allow-origin: *
+< via: 1.1 google
+< 
+* Connection #0 to host ifconfig.me left intact
