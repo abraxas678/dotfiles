@@ -14,8 +14,8 @@ echo -e "${BLUE}┌────────────────────�
 echo -e "${BLUE}│${NC} Checking WebDAV Mount Status            ${BLUE}│${NC}"
 
 if [ ! -d "$MOUNT_PATH" ]; then
-    echo -e "${BLUE}└─➤${NC} ${GRAY}Mount point not found, setting up...${NC}"
-    /home/abrax/bin/setup_automount_tsdrive.sh
+    echo -e "${BLUE}└─➤${NC} ${GRAY}Mount point not found, need to set up${NC}"
+#    /home/abrax/bin/setup_automount_tsdrive.sh
 else
     echo -e "${BLUE}└─➤${NC} ${GREEN}Mount point exists${NC}"
 fi
