@@ -1,16 +1,3 @@
-*   Trying 34.160.111.145:80...
-* Connected to ifconfig.me (34.160.111.145) port 80 (#0)
-> GET / HTTP/1.1
-> Host: ifconfig.me
-> User-Agent: curl/7.81.0
-> Accept: */*
-> 
-* Mark bundle as not supporting multiuse
-< HTTP/1.1 200 OK
-< date: Fri, 24 Jan 2025 08:03:57 GMT
-< content-type: text/plain
-< Content-Length: 12
-< access-control-allow-origin: *
-< via: 1.1 google
-< 
-* Connection #0 to host ifconfig.me left intact
+[?25l[?2004h.config/catt/catt.cfg has changed since chezmoi last wrote it? diff/overwrite/all-overwrite/skip/quit[0K[D.config/catt/catt.cfg has changed since chezmoi last wrote it? s [0K[D[2K[?2004l[?25h[?1002l[?1003l[?1006l[?25l[?2004hbin/cam-clicker/check_image.py has changed since chezmoi last wrote it? diff/overwrite/all-overwrite/skip/quit[0K[Dbin/cam-clicker/check_image.py has changed since chezmoi last wrote it? s [0K[D[2K[?2004l[?25h[?1002l[?1003l[?1006l[?25l[?2004hbin/cam-clicker/colortimer.db has changed since chezmoi last wrote it? diff/overwrite/all-overwrite/skip/quit[0K[Dbin/cam-clicker/colortimer.db has changed since chezmoi last wrote it? s [0K[D[2K[?2004l[?25h[?1002l[?1003l[?1006l[?25l[?2004hbin/cam-clicker/colortimer.dbr has changed since chezmoi last wrote it? diff/overwrite/all-overwrite/skip/quit[0K[Dbin/cam-clicker/colortimer.dbr has changed since chezmoi last wrote it? s [0K[D[2K[?2004l[?25h[?1002l[?1003l[?1006l[?25l[?2004hbin/cam-clicker/ignore.db has changed since chezmoi last wrote it? diff/overwrite/all-overwrite/skip/quit[0K[Dbin/cam-clicker/ignore.db has changed since chezmoi last wrote it? s [0K[D[2K[?2004l[?25h[?1002l[?1003l[?1006l[?25l[?2004hbin/cam-clicker/ignore.dbr has changed since chezmoi last wrote it? diff/overwrite/all-overwrite/skip/quit[0K[Dbin/cam-clicker/ignore.dbr has changed since chezmoi last wrote it? s [0K[D[2K[?2004l[?25h[?1002l[?1003l[?1006l[?25l[?2004hbin/cam-clicker/power.dat has changed since chezmoi last wrote it? diff/overwrite/all-overwrite/skip/quit[0K[Dbin/cam-clicker/power.dat has changed since chezmoi last wrote it? s [0K[D[2K[?2004l[?25h[?1002l[?1003l[?1006l[?25l[?2004hbin/cam-clicker/progress.dat has changed since chezmoi last wrote it? diff/overwrite/all-overwrite/skip/quit[0K[Dbin/cam-clicker/progress.dat has changed since chezmoi last wrote it? s [0K[D[2K[?2004l[?25h[?1002l[?1003l[?1006l[?25l[?2004hbin/cam-clicker/state_change.dat has changed since chezmoi last wrote it? diff/overwrite/all-overwrite/skip/quit[0K[Dbin/cam-clicker/state_change.dat has changed since chezmoi last wrote it? s [0K[D[2K[?2004l[?25h[?1002l[?1003l[?1006l[0;34m┌────────────────────────────────────────┐[0m
+[0;34m│[0m Checking WebDAV Mount Status            [0;34m│[0m
+[0;34m└─➤[0m [1;30mMount point not found, need to set up[0m
