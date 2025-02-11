@@ -28,4 +28,4 @@ fi
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
 
-sudo /home/abrax/bin/setup_automount_nfs.sh
+#sudo /home/abrax/bin/setup_automount_nfs.sh
