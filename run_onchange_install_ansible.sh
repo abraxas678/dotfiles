@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#~/bin/setup_ansible_apps.yml hash: {{ include "~/bin/setup_ansible_apps.yml" | sha256sum }}
+#~/bin/setup_ansible_apps.yml hash: {{ include "/home/abrax/bin/setup_ansible_apps.yml" | sha256sum }}
 
 install_on_fedora() {
     sudo dnf install -y ansible
@@ -43,6 +43,6 @@ ansible-playbook ~/bin/setup_ansible_apps.yml --ask-become-pass -i /home/abrax/.
 echo "Ansible installation complete."
 
 echo
-[[ -f ~/.local/share/atuin/key ]] && [[ $(atuin status) = *"You are not logged in"* ]] && echo "atuin login:" && atuin login
+#[[ -f ~/.local/share/atuin/key ]] && [[ $(atuin status) = *"You are not logged in"* ]] && echo "atuin login:" && atuin login
 
 exit 0
