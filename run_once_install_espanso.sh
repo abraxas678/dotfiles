@@ -13,4 +13,5 @@ sudo ~/opt/Espanso.AppImage env-path register
 espanso service register
 
 # Start espanso
-espanso start
+#espanso start
+
