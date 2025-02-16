@@ -24,7 +24,7 @@ case "${OS}" in
             install_on_ubuntu
         else
             echo "Unsupported Linux distribution"
-            exit 1
+          #  exit 1
         fi
         ;;
     Darwin*)
@@ -32,7 +32,7 @@ case "${OS}" in
         ;;
     *)
         echo "Unsupported operating system: ${OS}"
-        exit 1
+      #  exit 1
         ;;
 esac
 
