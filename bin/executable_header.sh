@@ -88,3 +88,4 @@ if [[ $1 = "show" ]]; then
 top_header top_header; header1 header1; header2 header2; header3 header3; headergreen headergreen; headerred headerred
 toilet_header1 toilet_header1; toilet_header2 toilet_header2; toilet_header3 toilet_header3; toilet_header4 toilet_header4; toilet_header5 toilet_header5 ; mystatus1 mystatus1; mystatus2 mystatus2; mystatus3 mystatus3; mystatus4 mystatus4; mystatus5 mystatus5; mystatus6 mystatus6
 fi
+ 
