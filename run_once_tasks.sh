@@ -10,11 +10,6 @@ if ! command -v zsh >/dev/null 2>&1; then
     fi
 fi
 
-# Check if rclone is already installed
-if ! command -v rclone >/dev/null 2>&1; then
-    sudo -v ; curl https://rclone.org/install.sh | sudo bash -s beta
-fi
-
 ### BWS
 if ! command -v bws >/dev/null 2>&1; then
     wget https://github.com/bitwarden/sdk/releases/download/bws-v1.0.0/bws-x86_64-unknown-linux-gnu-1.0.0.zip
