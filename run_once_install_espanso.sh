@@ -1,5 +1,7 @@
 #! /bin/bash
 if [[ $(hostname) = *"nuc"* ]]; then
+command -v espanso >/dev/null 2>&1
+if [[ $? != 0 ]]; then
 mkdir -p /home/abrax/tmp/
 cd /home/abrax/tmp/
 # Create the $HOME/opt destination folder
@@ -15,5 +17,5 @@ espanso service register
 
 # Start espanso
 #espanso start
-
+fi
 fi

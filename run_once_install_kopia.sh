@@ -1,4 +1,6 @@
 #! /bin/bash
+command -v kopia >/dev/null 2>&1
+if [[ $? != 0 ]]; then
 mkdir $HOME/tmp
 cd $HOME/tmp
 curl -s https://kopia.io/signing-key | sudo gpg --dearmor -o /etc/apt/keyrings/kopia-keyring.gpg
@@ -7,3 +9,4 @@ sudo apt update
 sudo apt install kopia -y
 sudo apt install kopia-ui -y
 
+fi
