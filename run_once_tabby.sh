@@ -1,4 +1,5 @@
 #! /bin/bash
+if [[ $(hostname) = *"nuc"* ]]; then
 which tabby >/dev/null 2>&1
 if [[ $? != 0 ]]; then
     echothis "install tabby"
@@ -9,4 +10,5 @@ if [[ $? != 0 ]]; then
 #    echo $MYSUDO apt install $HOME/tmp/$(basename $URL)
     sudo apt install -y $HOME/tmp/$(basename $URL)
 
+fi
 fi
