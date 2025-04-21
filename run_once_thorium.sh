@@ -13,6 +13,7 @@ if [[ $? != 0 ]]; then
     wget $URL
 #    $MYSUDO apt install -y $HOME/tmp/$(basename $URL)
     sudo apt install -y $HOME/tmp/$(basename $URL)
+    [[ $? = 0 ]] && sudo apt purge -y firefox
     rm $(basename $URL)
 fi
 rm url -f
