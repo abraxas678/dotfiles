@@ -1,5 +1,10 @@
-[#444444]$4 Apr 00:53[#444444][blue] MullvadVPN-2025.5_amd64.deb[/blue]
-[#444444]$4 Apr 00:53[#444444][blue] mullvad-browser-linux-x86_64-14.0.9.tar.xz[/blue]
-[#444444]$4 Apr 00:55[#444444][blue] deldel[/blue]
-[#444444]$4 Apr 00:57[#444444][blue] deldeldel[/blue]
-[#444444]$4 Apr 00:58[#444444][blue] huhuhuahsi[/blue]
+action: notify.tvoverlaynotify
+data:
+  title: "wwww"
+  message: "aaaa"
+  data:
+    largeIcon: mdi:camera
+    smallIcon: mdi:speaker-multiple
+    smallIconColor: "#FF0000"
+    duration: 20
+    image: http://<HA_IP_ADDRESS>:8123/api/camera_proxy/camera.doorbell_clear?token=...
