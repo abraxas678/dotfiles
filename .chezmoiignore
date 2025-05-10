@@ -2,5 +2,9 @@
 key.txt.age
 .zsh_history
 .config/autokey/autokey.json~
-.config/chezmoi/**
 .git/**
+
+README.md
+{{- if ne .chezmoi.hostname "sftpgo" }}
+  !bin/*alias2.dat*
+{{- end }}
