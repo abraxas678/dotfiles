@@ -8,3 +8,7 @@ README.md
 {{- if ne .chezmoi.hostname "sftpgo" }}
   !bin/*alias2.dat*
 {{- end }}
+{{- if ne .chezmoi.hostname "nuc" }}
+  !*
+  # bin/*alias2.dat*
+{{- end }}
