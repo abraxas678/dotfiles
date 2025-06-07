@@ -1,0 +1,7 @@
+┌─────────────────────────────────────┐
+│ Task 9:    killed by system or user │
+└─────────────────────────────────────┘
+Command: runitor -api-url https://hc-ping.com -ping-key o4zFWbG--a472NL8pc39jQ -every 12h -slug updatedb sudo updatedb 
+   Path: /home/abrax/bin/github/gatus                                                                                  
+  Start: Sat, 17 May 2025 21:35:01 +0200                                                                               
+    End: Sun, 18 May 2025 17:11:26 +0200                                                                               
