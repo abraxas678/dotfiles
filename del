@@ -1,7 +1,10 @@
-┌─────────────────────────────────────┐
-│ Task 9:    killed by system or user │
-└─────────────────────────────────────┘
-Command: runitor -api-url https://hc-ping.com -ping-key o4zFWbG--a472NL8pc39jQ -every 12h -slug updatedb sudo updatedb 
-   Path: /home/abrax/bin/github/gatus                                                                                  
-  Start: Sat, 17 May 2025 21:35:01 +0200                                                                               
-    End: Sun, 18 May 2025 17:11:26 +0200                                                                               
+which command produced this output on proxmox:
+Name                             Type     Status           Total            Used       Available        %
+BACKUP01                          nfs   inactive               0               0               0    0.00%
+FAVS_SNAS                         nfs   inactive               0               0               0    0.00%
+PVE3                              nfs   inactive               0               0               0    0.00%
+PVE4                              nfs   inactive               0               0               0    0.00%
+hdd5t                             dir     active      4843923176      3681822784       917905784   76.01%
+local                             dir     active        98497780        98481392               0   99.98%
+local-lvm                     lvmthin     active       832888832       372634463       460254368   44.74%
+snas_PRODUCTION_TEMPLATES         nfs   inactive               0               0               0    0.00%
