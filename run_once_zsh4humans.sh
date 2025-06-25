@@ -14,3 +14,4 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*
 
 #sudo /home/abrax/bin/setup_automount_nfs.sh
+sudo cp /usr/local/bin/zsh /usr/bin/zsh
