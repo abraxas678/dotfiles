@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# mpv-now: Show what mpv is currently playing (title or filename)
+# Tries MPRIS via playerctl first, then falls back to mpv's IPC socket.
+
+print_basename() {
+  local path="$1"
+  [[ -z "$path" ]] && return 1
+  echo "$(basename -- "$path")"
+}
+
+# 1) Try MPRIS via playerctl
+if command -v playerctl >/dev/null 2>&1; then
+  if playerctl -l 2>/dev/null | grep -qi '^mpv'; then
+    status=$(playerctl --player=mpv status 2>/dev/null || true)
+    if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
+      # Prefer a human title/artist if available
+      title=$(playerctl --player=mpv metadata --format '{{title}}' 2>/dev/null || true)
+      artist=$(playerctl --player=mpv metadata --format '{{artist}}' 2>/dev/null || true)
+      url=$(playerctl --player=mpv metadata xesam:url 2>/dev/null || true)
+
+      if [[ -n "$title" && "$title" != "No player could handle this command" ]]; then
+        if [[ -n "$artist" && "$artist" != "$title" ]]; then
+          echo "$title — $artist"
+        else
+          echo "$title"
+        fi
+        exit 0
+      fi
+
+      if [[ -n "$url" ]]; then
+        url=${url#file://}
+        print_basename "$url"
+        exit 0
+      fi
+    fi
+  fi
+fi
+
+# 2) Try mpv IPC socket
+candidates=(
+  "${XDG_RUNTIME_DIR:-}/mpv/socket"
+  "$HOME/.config/mpv/socket"
+  "/tmp/mpv-socket"
+)
+
+# Also probe some common temporary socket paths
+for probe in /tmp/mpv* /run/user/*/mpv/socket; do
+  if [[ -S "$probe" ]]; then
+    candidates+=("$probe")
+  fi
+done 2>/dev/null || true
+
+# Query helper using socat + optional jq/sed parsing
+query_mpv_ipc() {
+  local socket_path="$1" property="$2"
+  local payload="{\"command\":[\"get_property\",\"$property\"]}"
+  local response
+  response=$(printf '%s\n' "$payload" | socat - "UNIX-CONNECT:$socket_path" 2>/dev/null || true)
+  if command -v jq >/dev/null 2>&1; then
+    jq -r '.data // empty' <<<"$response"
+  else
+    sed -n 's/.*"data":"\([^"]*\)".*/\1/p' <<<"$response"
+  fi
+}
+
+if command -v socat >/dev/null 2>&1; then
+  for socket in "${candidates[@]}"; do
+    [[ -S "$socket" ]] || continue
+
+    title=$(query_mpv_ipc "$socket" "media-title")
+    if [[ -n "$title" ]]; then
+      echo "$title"
+      exit 0
+    fi
+
+    path=$(query_mpv_ipc "$socket" "path")
+    if [[ -n "$path" ]]; then
+      print_basename "$path"
+      exit 0
+    fi
+  done
+fi
+
+echo "mpv: nothing playing or not reachable" >&2
+exit 1
